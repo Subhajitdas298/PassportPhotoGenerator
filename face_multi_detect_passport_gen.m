@@ -72,7 +72,7 @@ hToWRatio = input('Enter height to width ratio (default: 1.2) : ');
 if isempty(hToWRatio)
      hToWRatio = 1.2;
 end
-scale = input('Enter height to scale (default: 1.8) : ');
+scale = input('Enter scale (default: 1.8) : ');
 if isempty(scale)
      scale = 1.8;
 end
