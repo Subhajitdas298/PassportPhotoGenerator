@@ -16,7 +16,7 @@ I = imread(fullFileName);
 
 FDetect = vision.CascadeObjectDetector( ...
 'ClassificationModel','FrontalFaceLBP', ...
-'MinSize',[round(size(I, 1)/10), round(size(I, 2)/10)]);
+'MinSize',[int(size(I, 1)/10), size(I, 2)/10]);
 
 %Returns Bounding Box values based on number of objects
 BB = step(FDetect,I);
