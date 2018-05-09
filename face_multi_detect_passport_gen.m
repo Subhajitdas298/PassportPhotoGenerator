@@ -1,4 +1,4 @@
-%% Detect objects using Viola-Jones Algorithm
+%% Detect faces using Viola-Jones Algorithm
 % Author : Subhajit Das
 % Date : 09/05/2018
 
@@ -8,7 +8,12 @@ close all;
 clear all;
 
 %% Read the input image
-[file,path] = uigetfile('*.jpg');
+[file,path] = uigetfile({'*.jpg';'*.jpeg';'*.png';'*.bmp'});
+% exit if no file is selected
+if isequal(file,0)
+   disp('Operation cancelled');
+   disp('Exiting...');
+end
 fullFileName = fullfile(path, file);
 I = imread(fullFileName);
 
@@ -21,6 +26,14 @@ FDetect = vision.CascadeObjectDetector( ...
 %Returns Bounding Box values based on number of objects
 BB = step(FDetect,I);
 
+%% stop if no face is found
+if isempty(BB)
+     disp('No faces detected.');
+     disp('Exiting...');
+     return;
+end
+
+%% show/mark detected faces
 figure;
 imshow(I); 
 hold on;
