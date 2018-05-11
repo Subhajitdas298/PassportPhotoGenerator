@@ -10,9 +10,10 @@ clear all;
 %% Read the input image
 [file,path] = uigetfile({'*.jpg';'*.jpeg';'*.png';'*.bmp'});
 % exit if no file is selected
-if isequal(file,0)
+if isequal(file,0) || isequal(path,0)
    disp('Operation cancelled');
    disp('Exiting...');
+   return;
 end
 fullFileName = fullfile(path, file);
 I = imread(fullFileName);
