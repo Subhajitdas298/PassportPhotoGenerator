@@ -27,7 +27,7 @@ FDetect = vision.CascadeObjectDetector( ...
 %Returns Bounding Box values based on number of objects
 BB = step(FDetect,I);
 
-% applying extra filtering for human face detection
+%% applying extra eye detection filtering for valid human face detection
 EyeDetect = vision.CascadeObjectDetector('EyePairBig');
 BBEye=step(EyeDetect,I);
 
