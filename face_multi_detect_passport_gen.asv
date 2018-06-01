@@ -72,20 +72,18 @@ hToWRatio = input('Enter height to width ratio (default: 1.2) : ');
 if isempty(hToWRatio)
      hToWRatio = 1.2;
 end
-
 scale = input('Enter scale (default: 1.8) : ');
 if isempty(scale)
      scale = 1.8;
 end
 
-copies = input('No of copies (default: 1) : ');
-if isempty(copies)
-     copies = 1;
+scale = input('No of copies (default: 1) : ');
+if isempty(scale)
+     scale = 1.8;
 end
 
 % for creating printable photo in A4 paper
-% create blank image
-printableImage = ones(3508,  2480, 3, 'uint8') * 255;
+printableImg = zeros(2480, 3508, 3, 'uint8');
 
 for i = 1:size(BB,1)
     x = BB(i, 1);
@@ -103,7 +101,3 @@ for i = 1:size(BB,1)
     imshow(photo);
     title(strcat('Passport Photo [', int2str(i), ']'));
 end
-
-% show printable image
-figure;
-imshow(printableImage);
